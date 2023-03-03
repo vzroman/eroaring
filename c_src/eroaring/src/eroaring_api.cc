@@ -18,3 +18,26 @@
 
 #include "eroaring.h"
 
+#define ERL_NIF_REGULAR_BOUND 0
+
+static ErlNifFunc nif_funcs[] = {
+    {"create", 0, eroaring::Create, ERL_NIF_REGULAR_BOUND},
+    {"from_list", 1, eroaring::FromList, ERL_NIF_REGULAR_BOUND},
+};
+
+static void on_unload(ErlNifEnv * /*env*/, void * /*priv_data*/){
+}
+
+static int on_upgrade(ErlNifEnv* /*env*/, void** priv_data, void** old_priv_data, ERL_NIF_TERM /*load_info*/){
+    /* Convert the private data to the new version. */
+    *priv_data = *old_priv_data;
+    return 0;
+}
+
+static int on_load(ErlNifEnv* env, void** /*priv_data*/, ERL_NIF_TERM /*load_info*/){
+    return 0;
+}
+
+extern "C" {
+    ERL_NIF_INIT(eroaring, nif_funcs, &on_load, NULL, &on_upgrade, &on_unload)
+}

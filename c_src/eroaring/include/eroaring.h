@@ -19,5 +19,12 @@
 #ifndef eroaring__h
 #define eroaring__h
 
+#include "erl_nif.h"
+
+namespace eroaring {
+    ERL_NIF_TERM Create(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[]);
+    ERL_NIF_TERM FromList(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[]);
+}
+
 
 #endif

@@ -8,11 +8,11 @@ ERTS_INCLUDE_DIR ?= $(shell erl -noshell -s init stop -eval "io:format(\"~ts/ert
 PROJECT ?= $(notdir $(BASEDIR))
 PROJECT := $(strip $(PROJECT))
 
-CROARING_INCLUDE_DIR ?= $(CURDIR)/CRoaring
+CROARING_INCLUDE_DIR ?= $(CURDIR)/CRoaring/build
 
 EROARING_INCLUDE_DIR ?= $(CURDIR)/eroaring/include
 
-INCLUDE_DIR = -I $(CROARING_INCLUDE_DIR) -I $(EROARING_INCLUDE_DIR)
+INCLUDE_DIR = -I $(ERTS_INCLUDE_DIR) -I $(CROARING_INCLUDE_DIR) -I $(EROARING_INCLUDE_DIR)
 
 C_SRC_DIR = $(CURDIR)
 INSTALL_DIR = $(BASEDIR)/priv

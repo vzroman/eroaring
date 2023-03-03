@@ -33,6 +33,7 @@ case "$1" in
         mkdir -p build
         cd build
         ../amalgamation.sh
+        rm -f amalgamation_demo.c amalgamation_demo.cpp
         ;;
 esac
 

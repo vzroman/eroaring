@@ -21,10 +21,10 @@
 %%	API
 %%==============================================================================
 -export([
-   new/0,
-   from_list/1,
+   create/0,
+   from_list/1
 
-   intersection/2
+%    intersection/2
 ]).
 
 %%==============================================================================
@@ -38,14 +38,14 @@ nif_stub_error(Line) ->
     erlang:nif_error({nif_not_loaded,module,?MODULE,line,Line}).
 
 
-new()->
+create()->
     ?nif_stub.
 
 from_list( _List )->
     ?nif_stub.
 
-intersection( _Set1, _Set2 )->
-    ?nif_stub.
+% intersection( _Set1, _Set2 )->
+%     ?nif_stub.
 
 
 on_load() ->
