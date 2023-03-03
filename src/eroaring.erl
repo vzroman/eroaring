@@ -17,14 +17,24 @@
 %%----------------------------------------------------------------
 -module(eroaring).
 
+-define(EMPTY,<<0,0,0,0,0,0,0,0>>).
 %%==============================================================================
 %%	API
 %%==============================================================================
 -export([
    create/0,
-   from_list/1
+   from_list/1,
+   to_list/1,
 
-%    intersection/2
+   intersection/2,
+   union/2,
+   subtract/2,
+
+   add_elements/2,
+   remove_elements/2,
+   contains/2,
+   count/1,
+   is_empty/1
 ]).
 
 %%==============================================================================
@@ -44,8 +54,32 @@ create()->
 from_list( _List )->
     ?nif_stub.
 
-% intersection( _Set1, _Set2 )->
-%     ?nif_stub.
+to_list( _Set )->
+    ?nif_stub.
+
+intersection( _Set1, _Set2 )->
+    ?nif_stub.
+
+union( _Set1, _Set2 )->
+    ?nif_stub.
+
+subtract( _Set1, _Set2 )->
+    ?nif_stub.
+
+add_elements( _Set, _Bits )->
+    ?nif_stub.
+
+remove_elements( _Set, _Bits )->
+    ?nif_stub.
+
+contains( _Set, _Bit )->
+    ?nif_stub.
+
+count( _Set )->
+    ?nif_stub.
+
+is_empty( Set )->
+    Set =:= ?EMPTY.
 
 
 on_load() ->

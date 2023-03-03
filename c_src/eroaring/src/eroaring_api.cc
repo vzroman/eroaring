@@ -21,9 +21,22 @@
 #define ERL_NIF_REGULAR_BOUND 0
 
 static ErlNifFunc nif_funcs[] = {
-    {"create", 0, eroaring::Create, ERL_NIF_REGULAR_BOUND},
-    {"from_list", 1, eroaring::FromList, ERL_NIF_REGULAR_BOUND},
+    {"create", 0, eroaring::create, ERL_NIF_REGULAR_BOUND},
+    {"from_list", 1, eroaring::from_list, ERL_NIF_REGULAR_BOUND},
+    {"to_list", 1, eroaring::to_list, ERL_NIF_REGULAR_BOUND},
+    {"intersection", 2, eroaring::intersection, ERL_NIF_REGULAR_BOUND},
+    {"union", 2, eroaring::union_sets, ERL_NIF_REGULAR_BOUND},
+    {"subtract", 2, eroaring::subtract, ERL_NIF_REGULAR_BOUND},
+    {"add_elements", 2, eroaring::add_elements, ERL_NIF_REGULAR_BOUND},
+    {"remove_elements", 2, eroaring::remove_elements, ERL_NIF_REGULAR_BOUND},
+    {"contains", 2, eroaring::contains, ERL_NIF_REGULAR_BOUND},
+    {"count", 1, eroaring::count, ERL_NIF_REGULAR_BOUND},
 };
+
+namespace eroaring {
+    ERL_NIF_TERM ATOM_TRUE;
+    ERL_NIF_TERM ATOM_FALSE;
+}
 
 static void on_unload(ErlNifEnv * /*env*/, void * /*priv_data*/){
 }
@@ -35,6 +48,10 @@ static int on_upgrade(ErlNifEnv* /*env*/, void** priv_data, void** old_priv_data
 }
 
 static int on_load(ErlNifEnv* env, void** /*priv_data*/, ERL_NIF_TERM /*load_info*/){
+
+    eroaring::ATOM_TRUE = enif_make_atom(env, "true");
+    eroaring::ATOM_FALSE = enif_make_atom(env, "false");
+
     return 0;
 }
 
