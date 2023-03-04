@@ -23,15 +23,6 @@ using namespace roaring;
 
 namespace eroaring {
 
-ERL_NIF_TERM create(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[]){
-    Roaring64Map r;
-    uint32_t size = r.getSizeInBytes();
-    ERL_NIF_TERM bin;
-    unsigned char *buf = enif_make_new_binary(env, size, &bin);
-    r.write((char *)buf);
-    return bin;
-}
-
 ERL_NIF_TERM from_list(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[]){
 
     if(!(argc == 1 && enif_is_list(env, argv[0]))) {

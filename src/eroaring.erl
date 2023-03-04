@@ -49,7 +49,7 @@ nif_stub_error(Line) ->
 
 
 create()->
-    ?nif_stub.
+    ?EMPTY.
 
 from_list( _List )->
     ?nif_stub.

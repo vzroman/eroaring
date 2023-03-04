@@ -21,7 +21,6 @@
 #define ERL_NIF_REGULAR_BOUND 0
 
 static ErlNifFunc nif_funcs[] = {
-    {"create", 0, eroaring::create, ERL_NIF_REGULAR_BOUND},
     {"from_list", 1, eroaring::from_list, ERL_NIF_REGULAR_BOUND},
     {"to_list", 1, eroaring::to_list, ERL_NIF_REGULAR_BOUND},
     {"intersection", 2, eroaring::intersection, ERL_NIF_REGULAR_BOUND},

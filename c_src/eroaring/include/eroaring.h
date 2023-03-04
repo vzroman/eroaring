@@ -22,7 +22,6 @@
 #include "erl_nif.h"
 
 namespace eroaring {
-    ERL_NIF_TERM create(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[]);
     ERL_NIF_TERM from_list(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[]);
     ERL_NIF_TERM to_list(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[]);
     ERL_NIF_TERM intersection(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[]);
