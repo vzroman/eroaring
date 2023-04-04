@@ -86,6 +86,7 @@ ERL_NIF_TERM to_list(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[]){
             val = enif_make_uint64(env, values[--length]);
             result = enif_make_list_cell(env, val, result);
         } while( length >0 );
+        enif_free( values );
     }
     return result;
 
